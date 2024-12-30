@@ -16,13 +16,13 @@
 | **macOS**   | ARM *(Apple silicon)* | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-darwin-arm64.dmg) |
 | **macOS**   | x64 *(Intel)*         | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-darwin-x64.dmg) |
 
-> ℹ️ Since the application lacks a digital signature, your OS may warn about potential risks. Follow the instructions for your OS to proceed with installation and launching.
-
-> ⚠️ In macOS, before mounting the dmg file with the application, it is necessary to clear its attributes using the following command in Terminal:
+> ⚠️ On macOS, before mounting the dmg file with the application, it is necessary to clear its attributes using the following command in Terminal:
 >
 > ```shell
 > xattr -c <path to dmg>
 > ```
+
+> ℹ️ Since the application lacks a digital signature, your OS may warn about potential risks. Follow the instructions for your OS to proceed with installation and launching.
 
 ## ✨ Key Features
 
@@ -90,13 +90,13 @@ C:\Users\<username>\AppData\Roaming\Tanki Online with Tweaks\extensions
 | **macOS**   | ARM *(Apple silicon)* | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-darwin-arm64.dmg) |
 | **macOS**   | x64 *(Intel)*         | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-darwin-x64.dmg) |
 
-> ℹ️ У приложения нет цифровой подписи, и операционная система может предупредить о потенциальных рисках. Для продолжения установки и запуска следуйте инструкциям для вашей ОС.
-
-> ⚠️ В macOS перед подключением dmg с приложением необходимо очистить его атрибуты с помощью команды в Терминале:
+> ⚠️ На macOS перед подключением dmg с приложением необходимо очистить его атрибуты с помощью команды в Терминале:
 >
 > ```
 > xattr -c <путь к dmg>
 > ```
+
+> ℹ️ У приложения нет цифровой подписи, и операционная система может предупредить о потенциальных рисках. Для продолжения установки и запуска следуйте инструкциям для вашей ОС.
 
 ## ✨ Ключевые особенности
 
