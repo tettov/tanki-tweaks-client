@@ -1,63 +1,151 @@
-# Tanki Tweaks Client
+# [English](#en-tanki-tweaks-client) | [Русский](#ru-tanki-tweaks-client)
 
-Кастомный клиент для «Танков Онлайн» by Niced.
+---
 
-Поддержка и фидбек: [**Discord**](https://discord.gg/hJn2QeJsT3) • [**Тема на форуме**](https://ru.tankiforum.com/topic/320910/)
+# [EN] Tanki Tweaks Client
 
-## Ключевые особенности
+**An alternative client for the game "Tanki Online".**
 
-- Автоматическая установка и обновление [**Tanki Tweaks**](https://chromewebstore.google.com/detail/tanki-tweaks/khcoecipddmigggaeokhmhmhjhlpcpnb) из Магазина расширений Chrome.
+> [🌐 **Discord**](https://discord.gg/hJn2QeJsT3) • [🌐 **Telegram**](https://t.me/tanki_projects) • [🌐 **Forum Thread**](https://ru.tankiforum.com/topic/320910/) • [❤️ **Support me on Boosty**](https://boosty.to/tanki-projects)
 
-- Актуальная версия движка с повышенной производительностью (особенно на macOS благодаря недавно добавленной поддержке Metal) и исправлением ошибок.
+## 📥 Downloads
 
-- Переработанный внешний вид окна и иконки на macOS.
+| OS          | Architecture          | Link       |
+|-------------|-----------------------|------------|
+| **Windows** | x64 *(Intel, AMD)*    | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.0/to-1.1.0-win32-x64.exe) |
+| **macOS**   | ARM *(Apple silicon)* | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.0/to-1.1.0-darwin-arm64.dmg) |
+| **macOS**   | x64 *(Intel)*         | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.0/to-1.1.0-darwin-x64.dmg) |
 
-- Поддержка пользовательских расширений.
+> ℹ️ Since the application lacks a digital signature, your OS may warn about potential risks. Follow the instructions for your OS to proceed with installation and launching.
 
-- Запускается на Windows 10 и 11, macOS и Debian/Ubuntu.
+> ⚠️ In macOS, before mounting the dmg file with the application, it is necessary to clear its attributes using the following command in Terminal:
+>
+> ```shell
+> xattr -c <path to dmg>
+> ```
 
-## Установка
+## ✨ Key Features
 
-1. Получить установочный файл клиента, загрузив собранный мной, или почувствовать себя разработчиком и собрать его самостоятельно из исходных кодов. Инструкции ниже.
+- All features of [**Tanki Tweaks**](https://chromewebstore.google.com/detail/tanki-tweaks/khcoecipddmigggaeokhmhmhjhlpcpnb) — a browser extension.
 
-2. Установить.
+- Up-to-date Chromium browser engine with improved performance and bug fixes.
 
-3. Возможно, на ноутбуках с двумя видеокартами (встроенной и дискретной) потребуется настроить для клиента запуск на высокопроизводительном адаптере. Делается в настройках Windows или драйвера видеокарты.
+- Support for custom extensions.
 
-## Готовые сборки
+- Compatibility with Windows 10 and 11, macOS, and Debian/Ubuntu.
 
-У приложения нет цифровой подписи и, скорее всего, ОС будет этим недовольна. Необходимо подтвердить установку и запуск специфичным для конкретной ОС способом.
+## 🛠️ Building from Source
 
-Также есть возможность самостоятельно собрать deb-пакет для Linux - смотрите «Сборка из исходников».
+1. Install [**Node.js**](https://nodejs.org) and [**Git**](https://git-scm.com). During installation, leave the default settings unless you're certain of changes.
 
-**Windows:**
-[**x64**](https://github.com/tettov/tanki-tweaks-client/releases/download/1.0.4/tanki-online-1.0.4-x64.exe) • [**ARM**](https://github.com/tettov/tanki-tweaks-client/releases/download/1.0.4/tanki-online-1.0.4-arm64.exe) • [**ia32**](https://github.com/tettov/tanki-tweaks-client/releases/download/1.0.4/tanki-online-1.0.4-ia32.exe)
+   On Debian/Ubuntu, you will also need to install the **dpkg** and **fakeroot** packages:
+   ```shell
+   sudo apt install dpkg fakeroot
+   ```
 
-**macOS:** [**ARM**](https://github.com/tettov/tanki-tweaks-client/releases/download/1.0.4/tanki-online-1.0.4-arm64.dmg) • [**x64**](https://github.com/tettov/tanki-tweaks-client/releases/download/1.0.4/tanki-online-1.0.4-x64.dmg)
+2. Ensure the `node`, `npm`, and `git` commands are recognized in the terminal. Restart your system if necessary.
 
-> ⚠️ На macOS перед установкой необходимо очистить атрибуты скачанного файла командой `xattr -c <путь к dmg>` в Терминале, в противном случае клиент не запустится. Например, находясь в папке с файлом: `xattr -c ./tanki-online-1.0.4-arm64.dmg`
+3. Open the terminal in the folder where you want to clone the repository and run the following commands:
 
-## Сборка из исходников
-
-1. Установить [**Node.js**](https://nodejs.org/) и [**Git**](https://git-scm.com/). При установке оставляйте параметры по умолчанию, если не уверены в том, что делаете. **Перезагрузить компьютер.** Если собираете deb-пакет для Linux, то потребуются также **dpkg** и **fakeroot** (на Ubuntu ставятся командой `sudo apt install dpkg fakeroot`).
-
-2. Запустить терминал (командную строку) в папке, где будет размещаться репозиторий.
-
-3. Последовательно выполнить команды:
    ```shell
    git clone https://github.com/tettov/tanki-tweaks-client
-   cd ./tanki-tweaks-client
+   ```
+   ```shell
+   cd tanki-tweaks-client
+   ```
+   ```shell
    npm ci && npm run make
    ```
 
-Если сборка пройдет успешно, где-то в папке `tanki-tweaks-client/out/make` появится установочный файл.
+Once the build is complete, the installation file will be available in the `tanki-tweaks-client -> out -> make` folder.
 
-## Пользовательские расширения
+## 🧩 Custom Extensions
 
-Движок клиента (Electron) поддерживает ограниченный набор API расширений, почитать о котором можно [в официальной документации](https://www.electronjs.org/docs/latest/api/extensions#supported-extensions-apis). Случайные расширения работать вряд ли будут. Но, например, специально написанные для игры (такие, как Tanki Tweaks) возможно подключить к клиенту, добавив их в распакованном формате (директория с файлом *manifest.json*) в специальную папку:
+The client uses the **Electron** framework, which supports a limited set of APIs for extensions. Detailed information is available in the [official documentation](https://www.electronjs.org/docs/latest/api/extensions#supported-extensions-apis).
 
-**Windows**: `C:\Users\<имя пользователя>\AppData\Roaming\Tanki Online with Tweaks\extensions`
+Although not all extensions are supported, you can use ones specifically developed for the game. To add an unpacked extension, place its folder (containing the `manifest.json` file) in the following location:
 
-Быстро перейти в папку *Roaming* можно через поиск, набрав *%APPDATA%*.
+**Windows:**
+```
+C:\Users\<username>\AppData\Roaming\Tanki Online with Tweaks\extensions
+```
+> 💡 To quickly access the extensions folder, type the following in File Explorer's address bar: `%APPDATA%\Tanki Online with Tweaks\extensions`
 
-**macOS**: `/Users/<имя пользователя>/Library/Application Support/Tanki Online with Tweaks/extensions`
+**macOS:**
+```
+/Users/<username>/Library/Application Support/Tanki Online with Tweaks/extensions
+```
+
+# [RU] Tanki Tweaks Client
+
+**Альтернативный клиент для игры «Танки Онлайн».**
+
+> [🌐 **Discord**](https://discord.gg/hJn2QeJsT3) • [🌐 **Telegram**](https://t.me/tanki_projects) • [🌐 **Тема на форуме**](https://ru.tankiforum.com/topic/320910/) • [❤️ **Поддержите меня на Boosty**](https://boosty.to/tanki-projects)
+
+## 📥 Загрузки
+
+| ОС          | Архитектура           | Ссылка     |
+|-------------|-----------------------|------------|
+| **Windows** | x64 *(Intel, AMD)*    | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.0/to-1.1.0-win32-x64.exe) |
+| **macOS**   | ARM *(Apple silicon)* | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.0/to-1.1.0-darwin-arm64.dmg) |
+| **macOS**   | x64 *(Intel)*         | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.0/to-1.1.0-darwin-x64.dmg) |
+
+> ℹ️ У приложения нет цифровой подписи, и операционная система может предупредить о потенциальных рисках. Для продолжения установки и запуска следуйте инструкциям для вашей ОС.
+
+> ⚠️ В macOS перед подключением dmg с приложением необходимо очистить его атрибуты с помощью команды в Терминале:
+>
+> ```
+> xattr -c <путь к dmg>
+> ```
+
+## ✨ Ключевые особенности
+
+- Все возможности [**Tanki Tweaks**](https://chromewebstore.google.com/detail/tanki-tweaks/khcoecipddmigggaeokhmhmhjhlpcpnb) — расширения для браузера.
+
+- Актуальная версия браузерного движка Chromium с улучшенной производительностью и исправлениями ошибок.
+
+- Поддержка пользовательских расширений.
+
+- Совместимость с Windows 10 и 11, macOS, и Debian/Ubuntu.
+
+## 🛠️ Сборка из исходников
+
+1. Установите [**Node.js**](https://nodejs.org) и [**Git**](https://git-scm.com). При установке оставляйте параметры по умолчанию, если не уверены.
+   
+   В Debian/Ubuntu также потребуется установить пакеты **dpkg** и **fakeroot**:
+   ```shell
+   sudo apt install dpkg fakeroot
+   ```
+
+2. Убедитесь, что терминал распознаёт команды `node`, `npm` и `git`. При необходимости перезагрузите систему.
+
+3. Откройте терминал в папке, где будет располагаться репозиторий с исходным кодом, и выполните следующие команды:
+
+   ```shell
+   git clone https://github.com/tettov/tanki-tweaks-client
+   ```
+   ```shell
+   cd tanki-tweaks-client
+   ```
+   ```shell
+   npm ci && npm run make
+   ```
+
+После успешной сборки в папке `tanki-tweaks-client -> out -> make` появится установочный файл.
+
+## 🧩 Пользовательские расширения
+
+Клиент использует фреймворк **Electron**, который поддерживает ограниченный набор API для расширений. Подробную информацию можно найти в [официальной документации](https://www.electronjs.org/docs/latest/api/extensions#supported-extensions-apis).
+
+Хотя не все расширения будут работать, вы можете использовать специально разработанные для игры расширения. Для этого разместите распакованное расширение (папку с файлом `manifest.json`) по следующему пути:
+
+**Windows:**
+```
+C:\Users\<имя пользователя>\AppData\Roaming\Tanki Online with Tweaks\extensions
+```
+> 💡 Для быстрого доступа к папке с расширениями введите путь в адресной строке Проводника: `%APPDATA%\Tanki Online with Tweaks\extensions`
+
+**macOS:**
+```
+/Users/<имя пользователя>/Library/Application Support/Tanki Online with Tweaks/extensions
+```

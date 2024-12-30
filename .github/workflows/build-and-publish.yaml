@@ -1,0 +1,38 @@
+name: Build and Publish Release
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    strategy:
+      max-parallel: 1
+      matrix:
+        include:
+          - os: windows-2022
+            script: publish-windows
+          - os: macos-14
+            script: publish-macos
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build and Publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run ${{ matrix.script }}

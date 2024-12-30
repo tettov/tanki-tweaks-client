@@ -1,46 +1,56 @@
 {
     "name": "tanki-tweaks-client",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "author": {
-        "name": "Niced",
-        "email": "tettovs@gmail.com",
-        "url": "https://discord.gg/hJn2QeJsT3"
-    },
-    "description": "Tanki Online with Tweaks",
-    "private": true,
-    "dependencies": {
-        "electron-squirrel-startup": "1.0.0",
-        "extract-zip": "2.0.1",
-        "fast-xml-parser": "4.3.6",
-        "minimist": "1.2.8",
-        "nodejs-file-downloader": "4.12.1"
-    },
-    "devDependencies": {
-        "@electron-forge/cli": "7.3.1",
-        "@electron-forge/maker-deb": "7.3.1",
-        "@electron-forge/maker-dmg": "7.3.1",
-        "@electron-forge/maker-squirrel": "7.3.1",
-        "@electron-forge/plugin-fuses": "7.3.1",
-        "@tsconfig/node20": "20.1.3",
-        "@types/minimist": "1.2.5",
-        "@types/node": "20.11.28",
-        "electron": "29.1.5",
-        "rimraf": "5.0.5",
-        "typescript": "5.3.3"
+        "name": "Tanki Projects",
+        "url": "https://ttanki.com"
     },
     "productName": "Tanki Online with Tweaks",
+    "description": "Alternative client for Tanki Online",
+    "private": true,
     "main": "./build/main.js",
+    "dependencies": {
+        "electron-log": "5.2.4",
+        "electron-squirrel-startup": "1.0.1",
+        "extract-zip": "2.0.1",
+        "fast-xml-parser": "4.5.0",
+        "minimist": "1.2.8",
+        "nodejs-file-downloader": "4.13.0",
+        "update-electron-app": "3.1.0"
+    },
+    "devDependencies": {
+        "@electron-forge/cli": "7.6.0",
+        "@electron-forge/maker-deb": "7.6.0",
+        "@electron-forge/maker-dmg": "7.6.0",
+        "@electron-forge/maker-squirrel": "7.6.0",
+        "@electron-forge/plugin-fuses": "7.6.0",
+        "@electron-forge/publisher-github": "7.6.0",
+        "@electron-forge/shared-types": "7.6.0",
+        "@tsconfig/node22": "22.0.0",
+        "@types/minimist": "1.2.5",
+        "@types/node": "22.10.2",
+        "electron": "33.2.1",
+        "rimraf": "6.0.1",
+        "ts-node": "10.9.2",
+        "typescript": "5.7.2"
+    },
     "scripts": {
-        "clean": "rimraf -- ./build ./out",
+        "clean": "rimraf ./build",
         "prebuild": "npm run clean",
         "build": "tsc",
         "prestart": "npm run build",
-        "prepackage": "npm run build",
         "premake": "npm run build",
+        "prepublish": "npm run build",
         "start": "electron-forge start",
-        "package": "electron-forge package",
         "make": "electron-forge make",
-        "make-windows": "npm run make -- --platform=win32 --arch=ia32,x64,arm64",
-        "make-macos": "npm run make -- --platform=darwin --arch=x64,arm64"
+        "make-windows": "npm run make -- --platform=win32 --arch=x64,arm64",
+        "make-macos": "npm run make -- --platform=darwin --arch=x64,arm64",
+        "publish": "electron-forge publish",
+        "publish-windows-x64": "npm run publish -- --platform=win32 --arch=x64",
+        "publish-windows-arm64": "npm run publish -- --platform=win32 --arch=arm64",
+        "publish-windows": "npm run publish-windows-x64",
+        "publish-macos-x64": "npm run publish -- --platform=darwin --arch=x64",
+        "publish-macos-arm64": "npm run publish -- --platform=darwin --arch=arm64",
+        "publish-macos": "npm run publish-macos-x64 && npm run publish-macos-arm64"
     }
 }

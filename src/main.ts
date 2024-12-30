@@ -4,15 +4,24 @@ import Path from "path";
 import { spawn } from "child_process";
 import parseArgs from "minimist";
 import { BrowserWindow, app as application, dialog, session, shell } from "electron";
+import log from "electron-log/main";
+import { updateElectronApp, UpdateSourceType } from "update-electron-app";
 import { createHash } from "crypto";
 import { XMLParser } from "fast-xml-parser";
-import FileDownloader from "nodejs-file-downloader";
+import { Downloader as FileDownloader } from "nodejs-file-downloader";
 import extractZip from "extract-zip";
 
+const UPDATE_CONFIG_TEMPLATE_URL =
+    "https://releases.ttanki.com/tanki-tweaks-client/update-config-template.json";
 const TANKI_ONLINE_URL = "https://tankionline.com/play/";
+
 const EXTERNAL_BROWSER_URLS = [
+    "https://ttanki.com",
+    "https://ttanki.com/tweaks",
     "https://discord.gg/hJn2QeJsT3",
-    "https://ru.tankiforum.com/topic/320910/"
+    "https://t.me/tanki_projects",
+    "https://ru.tankiforum.com/topic/320910/",
+    "https://boosty.to/tanki-projects"
 ];
 const TANKI_TWEAKS_EXTENSION_KEY =
     "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjc6ZrxUpSuXqCI+J3a3F" +
@@ -26,6 +35,8 @@ const TANKI_TWEAKS_EXTENSION_KEY =
 const options = parseArgs(process.argv.slice(1));
 
 async function main() {
+
+    Object.assign(console, log.functions);
 
     if (require("electron-squirrel-startup")) {
         application.quit(); return;
@@ -43,6 +54,22 @@ async function main() {
         application.quit(); return;
     }
 
+    if (OS.platform() === "win32") {
+        try {
+            let updateConfigTemplate =
+                await (await fetch(UPDATE_CONFIG_TEMPLATE_URL,
+                    { signal: AbortSignal.timeout(5000) })).text();
+            updateConfigTemplate = updateConfigTemplate
+                .replaceAll("[platform]", OS.platform())
+                .replaceAll("[arch]", OS.arch())
+                .replaceAll("[version]", application.getVersion());
+            const updateConfig = JSON.parse(updateConfigTemplate);
+            updateElectronApp({ logger: log, ...updateConfig });
+        } catch (error) {
+            log.error(error);
+        }
+    }
+
     application.commandLine.appendSwitch("disable-renderer-backgrounding");
     application.commandLine.appendSwitch("force_high_performance_gpu");
     application.commandLine.appendSwitch("ignore-gpu-blocklist");
@@ -50,9 +77,9 @@ async function main() {
     await application.whenReady();
 
     if (!(await canConnect(options.url ?? TANKI_ONLINE_URL))) {
-        dialog.showErrorBox("Ошибка / Error",
-            "Нет подключения к серверу игры.\n\n" +
-            "Unable to connect to the game server.");
+        dialog.showErrorBox("Error / Ошибка",
+            "Unable to connect to the game server.\n\n" +
+            "Нет подключения к серверу игры.");
         application.quit(); return;
     }
 
@@ -65,7 +92,8 @@ async function canConnect(url: string,
 
     for (let i = 0; i < tries; i++) {
         try {
-            await fetch(url);
+            await fetch(url,
+                { signal: AbortSignal.timeout(5000) });
             return true;
         } catch (error) { }
     }
@@ -121,12 +149,12 @@ async function updateAndLoadExtensions(userDataPath: string) {
                 { encoding: "utf-8" }));
             extensions.push({ path: directoryPath, manifest });
         } catch (error) {
-            console.log(error);
+            log.error(error);
         }
     }
 
-    if (extensions.find((extension) =>
-        extension.manifest.key === TANKI_TWEAKS_EXTENSION_KEY) == null) {
+    if (!extensions.some((extension) =>
+        extension.manifest.key === TANKI_TWEAKS_EXTENSION_KEY)) {
         const tweaksExtension = {
             path: Path.join(extensionsPath, "tanki-tweaks"),
             manifest: {
@@ -142,7 +170,7 @@ async function updateAndLoadExtensions(userDataPath: string) {
             await session.defaultSession
                 .loadExtension(extension.path);
         } catch (error) {
-            console.log(error);
+            log.error(error);
         }
     }
 }
