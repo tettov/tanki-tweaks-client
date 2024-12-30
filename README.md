@@ -12,9 +12,9 @@
 
 | OS          | Architecture          | Link       |
 |-------------|-----------------------|------------|
-| **Windows** | x64 *(Intel, AMD)*    | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.0/to-1.1.0-win32-x64.exe) |
-| **macOS**   | ARM *(Apple silicon)* | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.0/to-1.1.0-darwin-arm64.dmg) |
-| **macOS**   | x64 *(Intel)*         | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.0/to-1.1.0-darwin-x64.dmg) |
+| **Windows** | x64 *(Intel, AMD)*    | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-win32-x64.exe) |
+| **macOS**   | ARM *(Apple silicon)* | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-darwin-arm64.dmg) |
+| **macOS**   | x64 *(Intel)*         | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-darwin-x64.dmg) |
 
 > ℹ️ Since the application lacks a digital signature, your OS may warn about potential risks. Follow the instructions for your OS to proceed with installation and launching.
 
@@ -86,9 +86,9 @@ C:\Users\<username>\AppData\Roaming\Tanki Online with Tweaks\extensions
 
 | ОС          | Архитектура           | Ссылка     |
 |-------------|-----------------------|------------|
-| **Windows** | x64 *(Intel, AMD)*    | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.0/to-1.1.0-win32-x64.exe) |
-| **macOS**   | ARM *(Apple silicon)* | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.0/to-1.1.0-darwin-arm64.dmg) |
-| **macOS**   | x64 *(Intel)*         | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.0/to-1.1.0-darwin-x64.dmg) |
+| **Windows** | x64 *(Intel, AMD)*    | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-win32-x64.exe) |
+| **macOS**   | ARM *(Apple silicon)* | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-darwin-arm64.dmg) |
+| **macOS**   | x64 *(Intel)*         | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-darwin-x64.dmg) |
 
 > ℹ️ У приложения нет цифровой подписи, и операционная система может предупредить о потенциальных рисках. Для продолжения установки и запуска следуйте инструкциям для вашей ОС.
 

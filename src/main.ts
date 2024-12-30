@@ -45,12 +45,13 @@ async function main() {
         process.env.GPU_SET !== "true") {
         spawn(process.execPath, process.argv.slice(1), {
             detached: true,
+            stdio: "ignore",
             env: {
                 ...process.env,
                 SHIM_MCCOMPAT: "0x800000001",
                 GPU_SET: "true"
             }
-        });
+        }).unref();
         application.quit(); return;
     }
 
