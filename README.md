@@ -28,7 +28,7 @@
 
 - All features of [**Tanki Tweaks**](https://chromewebstore.google.com/detail/tanki-tweaks/khcoecipddmigggaeokhmhmhjhlpcpnb) — a browser extension.
 
-- Up-to-date Chromium browser engine with improved performance and bug fixes.
+- Up-to-date browser engine with improved performance and bug fixes.
 
 - Support for custom extensions.
 
@@ -102,7 +102,7 @@ C:\Users\<username>\AppData\Roaming\Tanki Online with Tweaks\extensions
 
 - Все возможности [**Tanki Tweaks**](https://chromewebstore.google.com/detail/tanki-tweaks/khcoecipddmigggaeokhmhmhjhlpcpnb) — расширения для браузера.
 
-- Актуальная версия браузерного движка Chromium с улучшенной производительностью и исправлениями ошибок.
+- Актуальная версия браузерного движка с улучшенной производительностью и исправлениями ошибок.
 
 - Поддержка пользовательских расширений.
 
