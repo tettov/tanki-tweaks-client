@@ -12,9 +12,9 @@
 
 | OS          | Architecture          | Link       |
 |-------------|-----------------------|------------|
-| **Windows** | x64 *(Intel, AMD)*    | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-win32-x64.exe) |
-| **macOS**   | ARM *(Apple silicon)* | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-darwin-arm64.dmg) |
-| **macOS**   | x64 *(Intel)*         | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-darwin-x64.dmg) |
+| **Windows** | x64 *(Intel, AMD)*    | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.2/to-1.1.2-win32-x64.exe) |
+| **macOS**   | ARM *(Apple silicon)* | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.2/to-1.1.2-darwin-arm64.dmg) |
+| **macOS**   | x64 *(Intel)*         | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.2/to-1.1.2-darwin-x64.dmg) |
 
 > ⚠️ On macOS, before mounting the dmg file with the application, it is necessary to clear its attributes using the following command in Terminal:
 >
@@ -86,9 +86,9 @@ C:\Users\<username>\AppData\Roaming\Tanki Online with Tweaks\extensions
 
 | ОС          | Архитектура           | Ссылка     |
 |-------------|-----------------------|------------|
-| **Windows** | x64 *(Intel, AMD)*    | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-win32-x64.exe) |
-| **macOS**   | ARM *(Apple silicon)* | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-darwin-arm64.dmg) |
-| **macOS**   | x64 *(Intel)*         | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.1/to-1.1.1-darwin-x64.dmg) |
+| **Windows** | x64 *(Intel, AMD)*    | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.2/to-1.1.2-win32-x64.exe) |
+| **macOS**   | ARM *(Apple silicon)* | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.2/to-1.1.2-darwin-arm64.dmg) |
+| **macOS**   | x64 *(Intel)*         | [Download](https://github.com/tettov/tanki-tweaks-client/releases/download/1.1.2/to-1.1.2-darwin-x64.dmg) |
 
 > ⚠️ На macOS перед подключением dmg с приложением необходимо очистить его атрибуты с помощью команды в Терминале:
 >

@@ -10,14 +10,15 @@ import { createHash } from "crypto";
 import { XMLParser } from "fast-xml-parser";
 import { Downloader as FileDownloader } from "nodejs-file-downloader";
 import extractZip from "extract-zip";
+import { Entry as ZipEntry } from "yauzl";
 
 const UPDATE_CONFIG_TEMPLATE_URL =
-    "https://releases.ttanki.com/tanki-tweaks-client/update-config-template.json";
+    "https://r.tanki.space/tanki-tweaks-client/update-config-template.json";
 const TANKI_ONLINE_URL = "https://tankionline.com/play/";
 
 const EXTERNAL_BROWSER_URLS = [
-    "https://ttanki.com",
-    "https://ttanki.com/tweaks",
+    "https://tanki.space",
+    "https://tanki.space/tweaks",
     "https://discord.gg/hJn2QeJsT3",
     "https://t.me/tanki_projects",
     "https://ru.tankiforum.com/topic/320910/",
@@ -198,11 +199,32 @@ async function updateExtension(extension: { path: string; manifest: any }) {
         }).download();
         FS.writeFileSync(zipPath, unwrapCRX(FS.readFileSync(crxPath)));
         FS.rmSync(extension.path, { recursive: true, force: true });
-        await extractZip(zipPath, { dir: extension.path });
+        await extractZip(zipPath, {
+            dir: extension.path,
+            onEntry: fixZipEntryPermissions
+        });
     } finally {
         FS.rmSync(crxPath, { force: true });
         FS.rmSync(zipPath, { force: true });
     }
+}
+
+function fixZipEntryPermissions(entry: ZipEntry) {
+
+    if (entry.externalFileAttributes === 0) return;
+    const mode = (entry.externalFileAttributes >> 16) & 0xFFFF;
+
+    let isDirectory = (mode & 61440) === 16384;
+    if (!isDirectory && entry.fileName.endsWith("/"))
+        isDirectory = true;
+    if (!isDirectory) isDirectory =
+        (entry.versionMadeBy >> 8) === 0 &&
+        entry.externalFileAttributes === 16;
+
+    const attributes = (mode & ~0o777) |
+        (isDirectory ? 0o755 : 0o644);
+    entry.externalFileAttributes &= ~(0xFFFF << 16);
+    entry.externalFileAttributes |= attributes << 16;
 }
 
 function extensionKeyToID(key: string): string {

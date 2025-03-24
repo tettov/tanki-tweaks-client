@@ -56,7 +56,7 @@ export default {
                     icon: "./resources/icons/icon.png",
                     categories: ["Game"],
                     section: "games",
-                    homepage: "https://ttanki.com/tweaks",
+                    homepage: "https://tanki.space/tweaks",
                 }
             })
         },
